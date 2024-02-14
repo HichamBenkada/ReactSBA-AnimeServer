@@ -1,12 +1,11 @@
-import React from 'react'
-import AnimeInfo from '../components/AnimeInfo'
-export const AnimeInfomation = (props) => {
+import React from "react";
+import AnimeInfo from "../components/AnimeInfo";
+export const AnimeInformation = ({ animeInfo }) => {
   return (
     <div className="infoContainer">
-    <div className="animeInfo">
-      {props.info && <AnimeInfo info={props.info} />}
+      <div className="animeInfo">
+        {animeInfo && <AnimeInfo info={animeInfo} />}
+      </div>
     </div>
-  </div>
-
-  )
-}
+  );
+};

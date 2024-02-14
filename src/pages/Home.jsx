@@ -1,34 +1,16 @@
-import React from 'react';
+import React from "react";
 import { useEffect, useRef, useState } from "react";
 import AnimeList from "../components/AnimeList";
-import {AnimeInformation} from "./AnimeInfo";
-import { SlMagnifier } from "react-icons/sl";
 
-
-const Home = () => {
+const Home = ({ setAnimeInfo ,addFav }) => {
+  //Manage Anime data state
   const [animeData, setAnimeData] = useState();
 
-  // const searchRef = useRef(null);
+  // const searchRef = useRef(null); //Remove me ...wanted to use it for search button but I implement dynamic search so this is not needed
+  //Manage Search State
   const [search, setSearch] = useState("Naruto");
 
-  //anime info
-  const [animeInfo, setAnimeInfo] = useState();
-  //favorites state
-  const [favorites, setFavorites] = useState([]);
-  //favorite handler
-  const addFav = (fav) => {
-    const index = favorites.findIndex((anime) => anime.mal_id === fav.mal_id);
-    if (index < 0) {
-      const newFav = [...favorites, fav];
-      setFavorites(newFav);
-    }
-  };
-
-  const removeFav = (fav) => {
-    const newFav = favorites.filter((anime) => anime.mal_id !== fav.mal_id);
-    setFavorites(newFav);
-  };
-
+  //Getting data from Jikan "Anime" API
   const getAnimeData = async () => {
     const response = await fetch(
       `https://api.jikan.moe/v4/anime?q=${search}&sfw&limit=20`
@@ -37,14 +19,14 @@ const Home = () => {
     setAnimeData(responseData.data);
   };
 
+  //handling fetch side effect
   useEffect(() => {
     getAnimeData();
   }, [search]);
-  
+
   return (
-    <>
-      <AnimeInformation info={animeInfo} />
-      <h2>Anime:</h2>
+    <div className="infoContainer">
+      <h2>Anime Results:</h2>
       <div className="row">
         <AnimeList
           data={animeData}
@@ -54,19 +36,8 @@ const Home = () => {
           <p>add fav+</p>
         </AnimeList>
       </div>
-
-      <div className="row">
-        <h1>Fav:</h1>
-        <AnimeList
-          data={favorites}
-          setAnimeInfo={setAnimeInfo}
-          handleFav={removeFav}
-        >
-          <p>remove fav-</p>
-        </AnimeList>
-      </div>
-    </>
+    </div>
   );
-}
+};
 
 export default Home;
