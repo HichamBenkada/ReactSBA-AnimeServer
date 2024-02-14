@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchBtn from "./SearchBtn";
 
-const NavBar = () => {
+const NavBar = ({setSearch}) => {
   return (
     <div className="navBar">
       <div>
@@ -20,7 +20,7 @@ const NavBar = () => {
         <div>Anime Info</div>
       </Link>
 
-      <SearchBtn />
+      <SearchBtn setSearch={setSearch}/>
 
       <Link to="/login">
         <div>Sign In</div>
