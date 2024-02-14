@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 
 //Pages:
-import NotFound from "./pages/404";
+import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 
 import "./App.css";
@@ -16,7 +16,7 @@ function App() {
     <>
       <NavBar />
       <Routes>
-        <Route path= "*" elemete={<NotFound />} />
+        {/* <Route path= "" elemete={<NotFound />} /> */}
         <Route path="/" element={<Home />} />
       </Routes>
     </>
