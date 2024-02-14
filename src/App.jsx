@@ -50,11 +50,13 @@ function App() {
         />
         <Route
           path="/favorites"
-          element={<Favorites
-            setAnimeInfo={setAnimeInfo}
-            removeFav={removeFav}
-            favorites={favorites}
-            />}
+          element={
+            <Favorites
+              setAnimeInfo={setAnimeInfo}
+              removeFav={removeFav}
+              favorites={favorites}
+            />
+          }
         />
       </Routes>
     </>

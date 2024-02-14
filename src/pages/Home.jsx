@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useRef, useState } from "react";
 import AnimeList from "../components/AnimeList";
 
-const Home = ({ setAnimeInfo ,addFav }) => {
+const Home = ({ setAnimeInfo, addFav }) => {
   //Manage Anime data state
   const [animeData, setAnimeData] = useState();
 

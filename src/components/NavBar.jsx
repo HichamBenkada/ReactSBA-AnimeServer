@@ -13,16 +13,16 @@ const NavBar = () => {
       <Link to="/">
         <div>Home</div>
       </Link>
-      <Link to='/favorites'>
+      <Link to="/favorites">
         <div>Favorites</div>
       </Link>
-      <Link to='/anime-info'>
+      <Link to="/anime-info">
         <div>Anime Info</div>
       </Link>
 
-      <SearchBtn/>
+      <SearchBtn />
 
-      <Link to='/login'>
+      <Link to="/login">
         <div>Sign In</div>
       </Link>
     </div>
