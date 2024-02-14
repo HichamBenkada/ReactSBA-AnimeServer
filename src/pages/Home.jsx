@@ -31,7 +31,7 @@ const Home = ({ setAnimeInfo ,addFav }) => {
         <AnimeList
           data={animeData}
           setAnimeInfo={setAnimeInfo}
-          handleFav={addFav}
+          handleFav={(anime) => addFav(anime)}
         >
           <p>add fav+</p>
         </AnimeList>

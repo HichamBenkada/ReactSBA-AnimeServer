@@ -14,14 +14,13 @@ import Favorites from "./pages/Favorites";
 //Styles:
 import "./App.css";
 
-
 function App() {
   //anime information state
   const [animeInfo, setAnimeInfo] = useState();
 
   //favorites state
   const [favorites, setFavorites] = useState([]);
-  //favorite handler
+  //favorite handlers: add/remove
   const addFav = (fav) => {
     const index = favorites.findIndex((anime) => anime.mal_id === fav.mal_id);
     if (index < 0) {
@@ -35,18 +34,28 @@ function App() {
     setFavorites(newFav);
   };
 
+  //Main routes:
   return (
     <>
       <NavBar />
       <Routes>
         <Route path="*" elemete={<NotFound />} />
-        <Route path="/" element={<Home setAnimeInfo={setAnimeInfo} addFav={addFav} />} />
         <Route
-          path='/anime-info'
+          path="/"
+          element={<Home setAnimeInfo={setAnimeInfo} addFav={addFav} />}
+        />
+        <Route
+          path="/anime-info"
           element={<AnimeInformation animeInfo={animeInfo} />}
         />
-        <Route path="/favorites" elemete={<Favorites  setAnimeInfo={setAnimeInfo} removeFav={removeFav} favorites={favorites}/>} />
-
+        <Route
+          path="/favorites"
+          element={<Favorites
+            setAnimeInfo={setAnimeInfo}
+            removeFav={removeFav}
+            favorites={favorites}
+            />}
+        />
       </Routes>
     </>
   );

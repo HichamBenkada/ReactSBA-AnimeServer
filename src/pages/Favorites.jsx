@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import AnimeList from '../components/AnimeList';
 
 const Favorites = ({favorites,setAnimeInfo,removeFav}) => {
 
@@ -8,7 +9,7 @@ const Favorites = ({favorites,setAnimeInfo,removeFav}) => {
     <AnimeList
       data={favorites}
       setAnimeInfo={setAnimeInfo}
-      handleFav={removeFav}
+      handleFav={(anime)=>removeFav(anime)}
     >
       <p>remove fav-</p>
     </AnimeList>
@@ -16,4 +17,4 @@ const Favorites = ({favorites,setAnimeInfo,removeFav}) => {
   )
 }
 
-export default Favorites
+export default Favorites;
